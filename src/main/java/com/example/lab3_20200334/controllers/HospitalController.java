@@ -31,7 +31,7 @@ public class HospitalController {
     }
 
 
-    @GetMapping("/hospital/listahospital")
+    @GetMapping(value ={"/hospital/listahospital","/"})
     public String mostrarListaHospital(Model model){
         List<Hospital> listaHospital = hospitalRepository.findAll();
         model.addAttribute("listaHospital",listaHospital);
