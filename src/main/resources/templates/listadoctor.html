@@ -57,15 +57,15 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="doctor : ${listaDoctor}">
+                    <tr th:each="doctor, vEstado : ${listaDoctor} ">
 
                         <td th:text="${doctor.id}"></td>
                         <td th:text="${doctor.nombre}"></td>
                         <td th:text="${doctor.especialidad}"></td>
-                        <td th:text="${doctor.hospital_id}"></td>
+                        <td th:text="${listaHospitales.get(vEstado.index)}"></td>
 
-                        <td><a class="btn btn-primary" th:href="@{'/doctor/listaPacientesPorDoctor' + '?id=' + ${doctor.id}} "> Mostrar Pacientes</a></td>
-                        <td><a class="btn btn-danger" th:href="@{'/doctor/listaCitasPorDoctor' + '?id=' + ${doctor.id}}">Mostrar Citas</a></td>
+                        <td><a class="btn btn-primary" th:href="@{'/doctor/listaPacientesPorDoctor' + '?id=' + ${doctor.id} }"> Mostrar Pacientes</a></td>
+                        <td><a class="btn btn-danger" th:href="@{'/doctor/listaCitasPorDoctor' + '?id=' + ${doctor.id} }">Mostrar Citas</a></td>
                     </tr>
                     </tbody>
                 </table>
